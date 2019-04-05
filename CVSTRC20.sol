@@ -1,7 +1,7 @@
-pragma solidity ^0.4.20;
+pragma solidity ^0.4.25;
 
 
-contract TRC20 {
+contract CVSTRC20 {
     // Public variables of the token
     string public name;
     string public symbol;
