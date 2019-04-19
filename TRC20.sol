@@ -1,7 +1,7 @@
 pragma solidity ^0.4.25;
 
 
-contract CVSTRC20 {
+contract TRC20 {
     // Public variables of the token
     string public name;
     string public symbol;
@@ -28,7 +28,7 @@ contract CVSTRC20 {
      * Initializes contract with initial supply tokens to the creator of the contract
      */
     uint256 initialSupply = 15000000000;
-    string tokenName = 'CryptoBrands Value Store';
+    string tokenName = 'Cryptobrands Value Store';
     string tokenSymbol = 'CVS';
     constructor() public {
 
@@ -134,5 +134,13 @@ contract CVSTRC20 {
         totalSupply -= _value;                              // Update totalSupply
         emit Burn(_from, _value);
         return true;
+    }
+
+    function _mint(address account, uint256 value) internal {
+        require(account != address(0));
+
+        totalSupply += value;
+        balanceOf[account] += value;
+        emit Transfer(address(0), account, value);
     }
 }
